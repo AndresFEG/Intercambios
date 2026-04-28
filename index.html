@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Intercambielo</title>
+
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Intercambielo PUES</h1>
+
+  <nav class="nav-opciones">
+    <button onclick="filtrar('todos')">INICIO</button>
+    <button onclick="filtrar('intercambio')">Intercambio</button>
+    <button onclick="filtrar('venta')">Venta</button>
+  </nav>
+
+  <input type="text" id="busqueda" placeholder="Buscar..." onkeyup="buscar()">
+
+  <div class="acciones-header">
+    <button onclick="abrirAuth()">Ingresar</button>
+    <button onclick="abrirFormulario()"> Publicar</button>
+  </div>
+</header>
+
+<!-- LOGIN MODAL -->
+<div id="modalAuth" class="modal oculto">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarAuth()">✖</span>
+    <h2>Acceso</h2>
+
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+
+    <button onclick="login()">Iniciar sesión</button>
+    <button onclick="registrar()">Registrarse</button>
+  </div>
+</div>
+
+<p id="usuarioActivo"></p>
+
+<!-- FORMULARIO MODAL -->
+<div id="modalForm" class="modal oculto">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarFormulario()">✖</span>
+
+    <h2>Publicar producto</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre del producto">
+    <textarea id="descripcion" placeholder="Descripción"></textarea>
+
+    <select id="tipo">
+      <option value="">Tipo</option>
+      <option value="venta">Venta</option>
+      <option value="intercambio">Intercambio</option>
+    </select>
+
+    <input type="file" id="imagen" accept="image/*">
+
+    <button onclick="publicar()">Publicar</button>
+  </div>
+</div>
+
+<!-- LISTA -->
+<section id="lista"></section>
+<!-- CARRUSEL -->
+<<div class="carrusel" id="carrusel">>
+  <div class="slides">
+    <img src="imagenes/69ab014aed317.r_d.468-262.webp" class="slide activo">
+    <img src="imagenes/descarga.jpg" class="slide">
+    <img src="imagenes/images2.jpg" class="slide">
+  </div>
+
+  <button class="prev" onclick="cambiarSlide(-1)">❮</button>
+  <button class="next" onclick="cambiarSlide(1)">❯</button>
+</div>
+<footer class="footer">
+  <div class="footer-contenido">
+
+    <div class="footer-col">
+      <h3> Intercambielo PUES</h3>
+      <p>Compra, vende e intercambia productos de forma fácil y segura.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explorar</h4>
+      <a href="#" onclick="filtrar('todos')">Todos</a>
+      <a href="#" onclick="filtrar('venta')">Ventas</a>
+      <a href="#" onclick="filtrar('intercambio')">Intercambios</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Soporte</h4>
+      <a href="#">Ayuda</a>
+      <a href="#">Seguridad</a>
+      <a href="#">Contacto</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Comunidad</h4>
+      <a href="#">Consejos de compra</a>
+      <a href="#">Normas</a>
+      <a href="#">Publicar seguro</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Intercambielo - Todos los derechos reservados</p>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
