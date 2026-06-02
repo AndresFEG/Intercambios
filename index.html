@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intercambielo</title>
 
   <!-- Fuente moderna -->
@@ -12,7 +13,7 @@
 <body>
 
 <header>
-  <h1>Intercambielo PUES</h1>
+  <h1>Intercambielo PS</h1>
 
   <nav class="nav-opciones">
     <button onclick="filtrar('todos')">INICIO</button>
@@ -54,11 +55,21 @@
     <input type="text" id="nombre" placeholder="Nombre del producto">
     <textarea id="descripcion" placeholder="Descripción"></textarea>
 
-    <select id="tipo">
+    <select id="tipo" onchange="togglePrecio()">
       <option value="">Tipo</option>
       <option value="venta">Venta</option>
       <option value="intercambio">Intercambio</option>
     </select>
+
+    <!-- 💰 PRECIO (solo venta) -->
+    <input
+      type="number"
+      id="precio"
+      placeholder="Precio del producto (solo venta)"
+      style="display:none;"
+
+      
+    >
 
     <input type="file" id="imagen" accept="image/*">
 
@@ -69,7 +80,7 @@
 <!-- LISTA -->
 <section id="lista"></section>
 <!-- CARRUSEL -->
-<<div class="carrusel" id="carrusel">>
+<div class="carrusel" id="carrusel">
   <div class="slides">
     <img src="imagenes/69ab014aed317.r_d.468-262.webp" class="slide activo">
     <img src="imagenes/descarga.jpg" class="slide">
@@ -114,6 +125,44 @@
     <p>© 2026 Intercambielo - Todos los derechos reservados</p>
   </div>
 </footer>
+<!-- CHATBOT INTERMEDIARIO -->
+
+<div id="modalChat" class="modal oculto">
+
+  <div class="modal-contenido chat-modal">
+
+    <span class="cerrar"
+      onclick="cerrarChatBot()">✖</span>
+
+    <h2>Asistente Intercambielo PS</h2>
+
+    <div id="chatMensajes" class="chat-box">
+
+      <div class="bot">
+        Hola 👋
+
+        Soy el asistente oficial de
+        Intercambielo PS.
+
+        Todas las compras e intercambios
+        son gestionados por nuestro
+        intermediario.
+      </div>
+
+    </div>
+
+    <input
+      type="text"
+      id="mensajeUsuario"
+      placeholder="Escribe tu mensaje">
+
+    <button onclick="enviarMensaje()">
+      Enviar
+    </button>
+
+  </div>
+
+</div>
 <script src="app.js"></script>
 </body>
 </html>
